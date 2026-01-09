@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Inscription - BlogArt{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body p-4">
+                    <h2 class="card-title mb-4 text-center">Créer un compte</h2>
+
+                    {{ form_start(registrationForm) }}
+                        {{ form_row(registrationForm.email) }}
+                        {{ form_row(registrationForm.prenom) }}
+                        {{ form_row(registrationForm.nom) }}
+                        {{ form_row(registrationForm.plainPassword) }}
+                        {{ form_row(registrationForm.confirmPassword) }}
+                        {{ form_row(registrationForm.agreeTerms) }}
+                        
+                        <div class="d-grid gap-2">
+                            {{ form_widget(registrationForm) }}
+                        </div>
+                    {{ form_end(registrationForm) }}
+
+                    <hr class="my-4">
+                    <p class="text-center">
+                        Vous avez déjà un compte ? 
+                        <a href="{{ path('app_login') }}">Connectez-vous</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

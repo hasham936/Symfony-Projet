@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Maillots de Football - FootMatch{% endblock %}
+
+{% block body %}
+<div class="container py-5">
+    <h1 class="mb-5">Nos Maillots de Football</h1>
+    
+    {% if maillots %}
+        <div class="row">
+            {% for maillot in maillots %}
+            <div class="col-md-6 col-lg-3 mb-5">
+                <div>
+                    <h5>{{ maillot.nom }}</h5>
+                    <p class="text-muted small mb-2">
+                        <strong>Équipe:</strong> {{ maillot.equipe }}<br>
+                        <strong>Taille:</strong> {{ maillot.taille }}
+                    </p>
+                    <p class="text-muted">{{ maillot.description[:80] }}...</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="h6">{{ maillot.prix }}€</span>
+                        <small>Stock: {{ maillot.stock }}</small>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-muted">Aucun maillot disponible.</p>
+    {% endif %}
+</div>
+{% endblock %}

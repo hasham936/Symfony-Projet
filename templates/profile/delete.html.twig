@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Supprimer mon compte - BlogArt{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="alert alert-danger" role="alert">
+                <h4 class="alert-heading">
+                    <i class="fas fa-exclamation-triangle"></i> Danger!
+                </h4>
+                <p>La suppression de votre compte est irréversible. Tous vos articles et données seront supprimées définitivement.</p>
+            </div>
+
+            <form method="post">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ app.user.id) }}">
+                
+                <div class="form-check mb-3">
+                    <input type="checkbox" class="form-check-input" id="confirm" required>
+                    <label class="form-check-label" for="confirm">
+                        Je confirme que je veux supprimer mon compte définitivement
+                    </label>
+                </div>
+
+                <div class="d-grid gap-2 mb-3">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash"></i> Supprimer mon compte
+                    </button>
+                </div>
+            </form>
+
+            <a href="{{ path('app_profile') }}" class="btn btn-outline-secondary w-100">
+                <i class="fas fa-arrow-left"></i> Annuler
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Mon profil - FootMatch{% endblock %}
+
+{% block body %}
+<div class="container section">
+    <div class="grid">
+        <div>
+            <div class="profile-section">
+                {% if user.profileImage %}
+                    <img src="/uploads/profiles/{{ user.profileImage }}" class="profile-avatar" alt="{{ user.fullName }}">
+                {% else %}
+                    <div class="rounded-full flex-center" style="width: 150px; height: 150px; background-color: #e5e5e5; margin: 0 auto;">
+                        <i class="fas fa-user fa-5x text-light-gray"></i>
+                    </div>
+                {% endif %}
+                <h3 class="profile-info space-y-3">{{ user.fullName }}</h3>
+                <p class="text-gray">{{ user.email }}</p>
+                {% if user.bio %}
+                    <p class="text-gray">{{ user.bio }}</p>
+                {% endif %}
+                <span class="profile-meta">
+                    Inscrit le {{ user.createdAt|date('d/m/Y') }}
+                </span>
+            </div>
+
+            <div class="actions-list space-y-4">
+                <a href="{{ path('app_profile_edit') }}" class="link-item">
+                    <i class="fas fa-edit"></i> Modifier mon profil
+                </a>
+                <a href="{{ path('app_change_password') }}" class="link-item">
+                    <i class="fas fa-key"></i> Changer le mot de passe
+                </a>
+                <a href="{{ path('app_profile_delete') }}" class="link-item link-danger">
+                    <i class="fas fa-trash"></i> Supprimer mon compte
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
