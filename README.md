@@ -49,17 +49,13 @@ Un CRUD complet pour la gestion des **maillots de football** :
 * Supprimer un maillot
 * Lister les maillots
 
-Ce CRUD peut être accessible depuis un espace administrateur ou une route sécurisée.
-
 ---
 
 ## Technologies utilisées
 
 * **Symfony**
 * **Twig** pour les templates
-* **Doctrine ORM** pour la gestion de la base de données
 * **Symfony Security** pour l'authentification
-* **Tailwind** pour le design
 * **MySQL** pour la base de données
 
 ---
